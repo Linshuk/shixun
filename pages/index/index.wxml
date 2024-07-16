@@ -1,7 +1,99 @@
 <!--index.wxml-->
-<navigation-bar title="Weixin" back="{{false}}" color="black" background="#FFF"></navigation-bar>
-<scroll-view class="scrollarea" scroll-y type="list">
-  <view class="container">
-    Weixin
+<view class ="container">
+<scroll-view>
+
+<view class="search">
+    <view class="child">
+      <icon type="search" size="32rpx;"/>
+      <input class="searchinput" placeholder="搜索商品" pl/>
+    </view>
+</view>
+
+    <swiper class="banner" autoplay indicator-dots circular="true" indicator-active-color="{{indicatorActiveColor}}">
+    <block wx:for="{{banners}}" wx:key="id">
+      <swiper-item>
+        <image class="banner-image" src="{{item.url}}" mode="aspectFill"/>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="icon-container">
+    <block wx:for="{{menu}}">
+      <view class="icon-item">
+        <image class="icon" src="{{item.iconUrl}}"></image>
+        <text class="icon-text">{{item.text}}</text>
+      </view>
+    </block>
   </view>
+  <view style="background-color: #fefefe; width: 100%; height: 20rpx;"></view>
+
+  <swiper class="notice-container" vertical autoplay circular>
+    <block wx:for="{{notice}}" wx:key="id">
+      <swiper-item class="notice-item">
+      <image class="notice-icon" src="/image/news.png" mode="aspectFill"></image>
+        <text class="notice-text">{{item.text}}</text>
+      
+      </swiper-item>
+    </block>
+</swiper>
+
+<view class="section">
+    <view class="header">
+      <text style="font-size: 18px; margin-left: 20px;">每日上新</text>
+      <button class="more-button">查看更多</button>
+    </view>
+    <scroll-view scroll-x class="product-list">
+      <view class="goods-list-horizontal">
+        <block wx:for="{{products}}" wx:key="id">
+            <view class="card1">
+                <image class="product-image" src="{{item.image}}"></image>
+                <text class="product-name">{{item.name}}</text>
+                <text class="product-price">¥{{item.price}}</text>
+            </view>
+        </block>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="section1">
+    <view class="section-title">
+      <text class="title">商城热卖</text>
+      <text class="view-more">更多 ></text>
+    </view>
+    <scroll-view scroll-x class="product-list">
+      <view class="goods-list-horizontal">
+        <block wx:for="{{products}}" wx:key="id">
+          <view class="goods-item1">
+            <image class="product-image1" src="{{item.image}}"></image>
+            <text class="product-name">{{item.name}}</text>
+            <text class="product-memo" style="font-size: 14px; margin-right: auto; color: #b5b5b5;   margin-left: 10px;">{{item.memo}}</text>
+            <view style="display: flex;">
+              <text class="product-price">¥{{item.price}}</text>
+              <image src="/image/cart.png" style="height: 30px; width: 30px; margin-left: 90rpx; margin-bottom: 5rpx;"></image>
+            </view>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="section1">
+    <view class="section-title1">
+      <text class="title">更多宝贝</text>
+    </view>
+
+    <view class="product" wx:for="{{products}}" wx:key="index">
+      <image class="product-image2" src="{{item.image}}"></image>
+      <view class="product-details">
+        <view class="product-title">{{item.name}}</view>
+        <view class="product-desc">{{item.memo}}</view>
+        <view class="product-price">￥{{item.price}}</view>
+      </view>
+      <image class="cart-icon" src="/image/cart.png"></image>
+
+    </view>
+  </view>
+
+
 </scroll-view>
+</view>
