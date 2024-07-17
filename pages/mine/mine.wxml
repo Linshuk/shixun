@@ -1,2 +1,49 @@
-<!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
+<view class="container">
+  <view class="user-info">
+    <image class="profile-photo" src="/image/user.png"></image>
+    <text class="username">微信用户</text>
+  </view>
+  <view class="order-section">
+    <view class="section-title">
+      <text>我的订单</text>
+      <text class="see-all">查看全部</text>
+    </view>
+    <view class="order-status">
+      <block wx:for="{{orderSection}}">
+          <view class="status-item">
+            <image class="icon" src="{{item.iconUrl}}" bind:tap="onToOrder" data-status="{{item.status}}"></image>
+            <text>{{item.text}}</text>
+          </view>
+      </block>
+    </view>
+
+    
+    <view class="order-info">
+      <block wx:for="{{orderInfo}}">
+        <view class="info-item">
+        <text style="color: #6386bc; font-weight: bold;">{{item.num}}</text>
+        <text>{{item.text}}</text>
+      </view>
+      </block>
+    </view>
+  </view>
+  <view class="menu">
+    <view class="menu-item">
+      <image class="icon" src="/image/promotion.png"></image>
+      <text>分销中心</text>
+    </view>
+    <view class="menu-item">
+      <image class="icon" src="/image/getCoupon.png"></image>
+      <text>领券中心</text>
+    </view>
+    <view class="menu-item">
+      <image class="icon" src="/image/myCoupon.png"></image>
+      <text>我的优惠券</text>
+    </view>
+    <view class="menu-item">
+      <image class="icon" src="/image/myAddr.png"></image>
+      <text>收货地址</text>
+    </view>
+  </view>
+  <button class="logout-button">退出登录</button>
+</view>

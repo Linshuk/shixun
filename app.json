@@ -3,7 +3,9 @@
     "pages/index/index",
     "pages/category/category",
     "pages/cart/cart",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/orderList/orderList",
+    "pages/login/login"
   ],
   "window": {
     "navigationBarTextStyle": "black",

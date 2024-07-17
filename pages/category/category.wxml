@@ -1,2 +1,50 @@
-<!--pages/category/category.wxml-->
-<text>pages/category/category.wxml</text>
+<view class ="container">
+
+  <view class="search">
+    <view class="child">
+      <icon type="search" size="32rpx;"/>
+      <input class="searchinput" placeholder="搜索你想要的商品"/>
+    </view>
+  </view>
+
+<view class="category-container">
+
+<scroll-view class="category">
+<view wx:for="{{categoryList}}" class="category-item {{selIndex==index ? 'active' : ''}}" data-index="{{index}}" data-id="{{item.categoryId}}" bind:tap="onMenuTab">
+  {{item.categoryName}}
+</view>
+</scroll-view>
+
+<scroll-view class="rightcontent" scroll-y="true" >
+
+  <view class="adver-map">
+        <image src="{{categoryImg}}" mode="widthFix" />
+      </view>
+
+      <view class="cont-item">
+        <block wx:for="{{productList}}">
+          <view class="show-item" bind:tap="toProdPage" data-prodid="{{item.prodId}}">
+            <view class="more-prod-pic">
+              <image src="{{item.pic}}" mode="widthFix" class="more-pic"/>
+            </view>
+
+            <view class="prod-text-right">
+              <view class="prod-text more">{{item.prodName}}</view>
+              <view class="cate-prod-info">{{item.brief}}</view>
+              <view class="prod-price more">
+                <text class="symbol">￥</text>
+                <text class="big-num">{{wxs.parsePrice(item.price)[0]}}.</text>
+                <text class="small-num">{{wxs.parsePrice(item.price)[1]}}</text>
+              </view>
+            </view>
+
+          </view>
+        </block>
+      </view>
+</scroll-view>
+
+</view>
+
+</view>
+
+<wxs module="wxs" src="/wxs/number.wxs"></wxs>

@@ -1,6 +1,6 @@
 .container {
   padding: 16px;
-  display: block;
+  background-color: #f8f8f8;
 }
 
 .user-info {
@@ -50,6 +50,7 @@
   width: 30px;
   height: 30px;
   margin-bottom: 5px;
+  margin-right: 10px;
 }
 .order-info {
   display: flex;
@@ -85,3 +86,25 @@
   height: 40px;
 }
 
+/* pages/orderList/orderList.wxss */
+.parent{
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid black;
+}
+
+.item{
+  width: 25%;
+  line-height: 80rpx;
+  border-right: 1px solid #c0c0c0;
+  display: flex;
+  justify-content: center;
+  color: black;
+}
+
+.active{
+  border-bottom: 2px solid red;
+  color: red;
+}

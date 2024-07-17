@@ -5,7 +5,49 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    orderSection:[
+      {
+        id: '1',
+        status: '1',
+        iconUrl: '/image/toPay.png',
+        text: '待支付'
+      },
+      {
+        id: '2',
+        status:'2',
+        iconUrl: '/image/toDelivery.png',
+        text: '待发货'
+      },
+      {
+        id: '3',
+        status:'3',
+        iconUrl: '/image/toTake.png',
+        text: '待收货'
+      },
+      {
+        id: '4',
+        status:'5',
+        iconUrl: '/image/toComment.png',
+        text: '已完成'
+      }
+    ],
+    orderInfo: [
+      {
+        id: '1',
+        num: '1',
+        text: '我的收藏'
+      },
+      {
+        id: '2',
+        num: '5',
+        text: '我的消息'
+      },
+      {
+        id: '3',
+        num: '3',
+        text: '我的足迹'
+      },
+    ]
   },
 
   /**
@@ -15,6 +57,12 @@ Page({
 
   },
 
+  onToOrder(e){
+    var status = e.currentTarget.dataset.status
+    wx.navigateTo({
+      url: '/pages/orderList/orderList?status='+status,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
